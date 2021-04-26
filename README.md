@@ -24,15 +24,16 @@ Continua a exposição ao mecanismo de suporte à concorrência em Java, conside
 Construa uma *simulação* de movimentos de conta bancária, com as seguintes caraterísticas:
 
 - *Threads* produtoras (`DepositThread`) que registam depósitos na conta
-  - Cada thread deposita montantes entre 1 e 10
-  - Entre cada depósito, thread espera entre 1 e 3 segundos
-  - Quando ultrapassar os 50 em montante total depositado, a *thread* termina
-  - A cada operação, a *thread* regista, em `System.out`, o seu identificador, o montante atual na conta, e o montante depositado
+  - Cada thread deposita montantes entre 1 e 10;
+  - Entre cada depósito, thread espera entre 1 e 3 segundos;
+  - Quando ultrapassar os 50 em montante total depositado, a *thread* termina;
+  - A cada operação, a *thread* regista, em `System.out`, o seu identificador, o montante atual na conta, e o montante depositado.
 - *Threads* consumidoras (`WithdrawThread`) que registam levantamentos
-  - Cada thread levanta montantes entre 5 e 20
-  - Entre cada depósito, thread espera entre 2 e 5 segundos
-  - Quando ultrapassar os 4 levantamentos, a *thread* termina
-  - A cada operação, a *thread* regista, em `System.out`, o seu identificador, o montante atual na conta, o número de levantamentos realizados pela *thread* até ao momento, e o sucesso/insucesso da tentativa atual
+  - Cada thread levanta montantes entre 5 e 20;
+  - Entre cada depósito, thread espera entre 2 e 5 segundos;
+  - Quando ultrapassar os 4 levantamentos, a *thread* termina;
+  - A cada operação, a *thread* regista, em `System.out`, o seu identificador, o montante atual na conta, e o número de levantamentos realizados pela *thread* até ao momento;
+  - Esta *thread* não deve falhar, mas sim aguardar até que existam condições para que consiga executar com sucesso.
 
 A conta bancária tem, inicialmente, montante zero. Quando todas as *threads* terminarem, a aplicação deve mostrar o montante atual.
 
