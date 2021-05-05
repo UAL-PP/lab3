@@ -13,7 +13,7 @@ public class DepositThread extends Thread {
     private final BankAccount bankAccount;
     private double depositedAmount = 0;
 
-    public DepositThread(final BankAccount bankAccount, final Random random) {
+    public DepositThread(final Random random, final BankAccount bankAccount) {
         this.bankAccount = bankAccount;
         this.random = random;
     }
@@ -25,11 +25,14 @@ public class DepositThread extends Thread {
             var waitTime = Math.min(MAX_WAIT_TIME, random.nextInt(MAX_WAIT_TIME) + MIN_WAIT_TIME);
             bankAccount.deposit(amount);
             depositedAmount += amount;
-            Thread.currentThread().get
-            try {
-                TimeUnit.SECONDS.sleep(waitTime);
-            } catch(InterruptedException e) {
-                e.printStackTrace();
+            System.out.println(Thread.currentThread().getId() + " [D] " + bankAccount.getBalance() + " " + depositedAmount);
+
+            if (depositedAmount < GOAL_AMOUNT) {
+                try {
+                    TimeUnit.SECONDS.sleep(waitTime);
+                } catch(InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

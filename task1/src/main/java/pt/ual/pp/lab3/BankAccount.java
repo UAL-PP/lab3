@@ -3,8 +3,8 @@ package pt.ual.pp.lab3;
 public class BankAccount {
     private double balance = 0.0;
 
-    public BankAccount(final double balance) {
-        this.balance = balance;
+    public double getBalance() {
+        return balance;
     }
 
     public synchronized void deposit(final double amount) {
